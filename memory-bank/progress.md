@@ -12,6 +12,7 @@
 - Model Context Protocol (MCP) integration for Claude Desktop
 - Examples for basic usage scenarios
 - International documentation (English, Portuguese, Chinese)
+- Local Hugging Face embedding models (all-MiniLM-L6-v2)
 
 ## What's Left to Build
 - Advanced multimedia processing improvements
@@ -23,6 +24,7 @@
 - More extensive frontend capabilities
 - Extended API features for advanced use cases
 - Additional integration examples with other AI frameworks
+- Better embedding model compatibility documentation
 
 ## Current Status
 - Basic functionality is operational and stable
@@ -31,6 +33,7 @@
 - Testing framework is in place but could be expanded
 - Example implementations demonstrate key capabilities
 - Community contributions are being encouraged through documentation
+- Configuration challenges with API proxies have been identified and resolved
 
 ## Known Issues
 - Performance bottlenecks with very large knowledge graphs
@@ -39,6 +42,9 @@
 - Documentation gaps in advanced customization scenarios
 - Testing coverage could be improved in certain areas
 - Frontend implementation is still a work in progress
+- **API Proxy Embedding Support**: Many OpenAI proxy services (like Restack.io) support LLM models but not embedding models, requiring fallback to local embedding models
+- **TikToken Model Compatibility**: Custom or newer models may not have tokenizer mappings in TikToken, causing initialization failures
+- **Environment Configuration Complexity**: Multiple API keys and endpoints need careful configuration when using proxy services
 
 ## Evolution of Project Decisions
 - Initial focus on simple API design to encourage adoption

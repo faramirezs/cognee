@@ -138,3 +138,76 @@ custom_tasks = [
 # Run custom pipeline
 await cognee_pipeline(tasks=custom_tasks, datasets="my_dataset")
 ```
+
+## Configuration Troubleshooting Patterns
+
+### API Proxy Service Limitations
+When using OpenAI proxy services (like Restack.io), common issues include:
+
+#### Embedding Model Support
+- Many proxy services support LLM models but not embedding models
+- Symptoms: "Unsupported model" errors when trying to use text-embedding-ada-002 or similar
+- Solution: Use local Hugging Face embedding models instead
+
+```env
+# Instead of API-based embeddings:
+# EMBEDDING_PROVIDER="openai"
+# EMBEDDING_MODEL="text-embedding-ada-002"
+
+# Use local embeddings:
+EMBEDDING_PROVIDER="huggingface"
+EMBEDDING_MODEL="all-MiniLM-L6-v2"
+EMBEDDING_DIMENSIONS=384
+```
+
+#### TikToken Model Compatibility
+- Custom or newer models may not have tokenizer mappings in TikToken
+- Symptoms: "Could not automatically map [model] to a tokeniser" errors
+- Solution: Use standard models with known tokenizer mappings
+
+```env
+# Problematic custom models:
+# LLM_MODEL="gpt-4.1-mini"
+
+# Use standard models:
+LLM_MODEL="gpt-3.5-turbo"
+# or
+LLM_MODEL="gpt-4o-mini"
+```
+
+### Working Configuration Examples
+
+#### Restack.io Proxy Setup
+```env
+# LLM Configuration (works with Restack)
+LLM_API_KEY="your_restack_api_key"
+LLM_MODEL="gpt-4.1-mini"
+LLM_PROVIDER="openai"
+LLM_ENDPOINT="https://ai.restack.io"
+
+# Embedding Configuration (local fallback)
+EMBEDDING_PROVIDER="huggingface"
+EMBEDDING_MODEL="all-MiniLM-L6-v2"
+EMBEDDING_DIMENSIONS=384
+```
+
+#### Direct OpenAI Setup
+```env
+# LLM Configuration
+LLM_API_KEY="sk-proj-..."
+LLM_MODEL="gpt-4o-mini"
+LLM_PROVIDER="openai"
+
+# Embedding Configuration
+EMBEDDING_PROVIDER="openai"
+EMBEDDING_MODEL="text-embedding-ada-002"
+EMBEDDING_API_KEY="sk-proj-..."
+EMBEDDING_DIMENSIONS=1536
+```
+
+### Debugging Steps
+1. Check API connectivity with LLM provider first
+2. Test embedding model separately before full pipeline
+3. Use local embedding models when API embedding fails
+4. Verify tokenizer compatibility for custom models
+5. Check proxy service documentation for supported models
