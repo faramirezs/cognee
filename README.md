@@ -13,6 +13,8 @@
   <a href="https://cognee.ai">Learn more</a>
   ·
   <a href="https://discord.gg/NQPKmU5CCg">Join Discord</a>
+  ·
+  <a href="https://www.reddit.com/r/AIMemory/">Join r/AIMemory</a>
   </p>
 
 
@@ -28,37 +30,38 @@
 
 
 
-Build dynamic Agent memory using scalable, modular ECL (Extract, Cognify, Load) pipelines.
+Build dynamic memory for Agents and replace RAG using scalable, modular ECL (Extract, Cognify, Load) pipelines.
 
-More on [use-cases](https://docs.cognee.ai/use-cases) and [evals](https://github.com/topoteretes/cognee/tree/main/evals) 
+More on [use-cases](https://docs.cognee.ai/use-cases) and [evals](https://github.com/topoteretes/cognee/tree/main/evals)
 
   <p align="center">
   🌐 Available Languages
   :
-  <a href="community/README.pt.md">🇵🇹 Português</a>
+  <a href="assets/community/README.pt.md">🇵🇹 Português</a>
   ·
-  <a href="community/README.zh.md">🇨🇳 [中文]</a>
+  <a href="assets/community/README.zh.md">🇨🇳 [中文]</a>
+  ·
+  <a href="assets/community/README.ru.md">🇷🇺 Русский</a>
   </p>
+
 
 <div style="text-align: center">
   <img src="https://raw.githubusercontent.com/topoteretes/cognee/refs/heads/main/assets/cognee_benefits.png" alt="Why cognee?" width="50%" />
 </div>
-
 </div>
-
-
 
 
 ## Features
 
 - Interconnect and retrieve your past conversations, documents, images and audio transcriptions
-- Reduce hallucinations, developer effort, and cost.
+- Replaces RAG systems and reduces developer effort, and cost.
 - Load data to graph and vector databases using only Pydantic
 - Manipulate your data while ingesting from 30+ data sources
 
 ## Get Started
 
-Get started quickly with a Google Colab  <a href="https://colab.research.google.com/drive/1g-Qnx6l_ecHZi0IOw23rg0qC4TYvEvWZ?usp=sharing">notebook</a>  or  <a href="https://github.com/topoteretes/cognee-starter">starter repo</a>
+Get started quickly with a Google Colab  <a href="https://colab.research.google.com/drive/1jHbWVypDgCLwjE71GSXhRL3YxYhCZzG1?usp=sharing">notebook</a> , <a href="https://deepnote.com/workspace/cognee-382213d0-0444-4c89-8265-13770e333c02/project/cognee-demo-78ffacb9-5832-4611-bb1a-560386068b30/notebook/Notebook-1-75b24cda566d4c24ab348f7150792601?utm_source=share-modal&utm_medium=product-shared-content&utm_campaign=notebook&utm_content=78ffacb9-5832-4611-bb1a-560386068b30">Deepnote notebook</a> or  <a href="https://github.com/topoteretes/cognee-starter">starter repo</a>
+
 
 ## Contributing
 Your contributions are at the core of making this a true open source project. Any contributions you make are **greatly appreciated**. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for more information.
@@ -70,11 +73,23 @@ Your contributions are at the core of making this a true open source project. An
 ## 📦 Installation
 
 You can install Cognee using either **pip**, **poetry**, **uv** or any other python package manager.
+Cognee supports Python 3.8 to 3.12
 
 ### With pip
 
 ```bash
 pip install cognee
+```
+
+## Local Cognee installation
+
+You can install the local Cognee repo using **pip**, **poetry** and **uv**.
+For local pip installation please make sure your pip version is above version 21.3.
+
+### with UV with all optional dependencies
+
+```bash
+uv sync --all-extras
 ```
 
 ## 💻 Basic Usage
@@ -122,14 +137,24 @@ if __name__ == '__main__':
 Example output:
 ```
   Natural Language Processing (NLP) is a cross-disciplinary and interdisciplinary field that involves computer science and information retrieval. It focuses on the interaction between computers and human language, enabling machines to understand and process natural language.
-  
+
 ```
-Graph visualization:
-<a href="https://rawcdn.githack.com/topoteretes/cognee/refs/heads/main/assets/graph_visualization.html"><img src="assets/graph_visualization.png" width="100%" alt="Graph Visualization"></a>
-Open in [browser](https://rawcdn.githack.com/topoteretes/cognee/refs/heads/main/assets/graph_visualization.html).
 
-For more advanced usage, have a look at our <a href="https://docs.cognee.ai"> documentation</a>.
+## Our paper is out! <a href="https://arxiv.org/abs/2505.24478" target="_blank" rel="noopener noreferrer">Read here</a>
 
+<div style="text-align: center">
+  <img src="assets/cognee-paper.png" alt="cognee paper" width="100%" />
+</div>
+
+</div>
+
+## Cognee UI
+
+You can also cognify your files and query using cognee UI.
+
+<img src="assets/cognee-ui-2.webp" width="100%" alt="Cognee UI 2"></a>
+
+Try cognee UI out locally [here](https://docs.cognee.ai/how-to-guides/cognee-ui).
 
 ## Understand our architecture
 
@@ -168,4 +193,3 @@ We are committed to making open source an enjoyable and respectful experience fo
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=topoteretes/cognee&type=Date)](https://star-history.com/#topoteretes/cognee&Date)
-
